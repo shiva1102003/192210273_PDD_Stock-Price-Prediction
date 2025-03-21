@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Predict Stock Price
+{% endblock %}
+
+{% block main %}
+<div class="card text-center w-75 mx-auto mb-4">
+    <div class="card-header mb-4">
+        <h3>Predict Stock Price</h3>
+    </div>
+    <div class="card-body mb-4">
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control form-control-lg p-2 bg-light rounded-pill shadow-sm w-50 mb-4 text-center mx-auto" name="symbol" placeholder="Stock Symbol (e.g., TCS)" required="required" type="text">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-lg rounded-pill w-50" type="submit">Predict</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% if symbol %}
+    <div class="container">
+        <h2>{{ symbol }} Price Prediction</h2>
+        <p>Current Price: {{ current_price | safe }}</p>
+        <p>Predicted Next Day Price: {{ predicted_price | safe }}</p>
+        <div style="width: 80%; margin: 20px auto;">
+            <canvas id="priceChart"></canvas>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var ctx = document.getElementById("priceChart").getContext("2d");
+                var chartDates = {{ chart_dates | tojson }};
+                var chartPrices = {{ chart_prices | tojson }};
+                var historicalPrices = chartPrices.slice(0, -1);
+                var predictedPrice = chartPrices.slice(-1)[0];
+                var historicalDates = chartDates.slice(0, -1);
+                var predictedDate = chartDates.slice(-1)[0];
+
+                new Chart(ctx, {
+                    type: "line",
+                    data: {
+                        labels: chartDates,
+                        datasets: [
+                            { label: "Historical Prices", data: historicalPrices.concat([null]), borderColor: "blue", fill: false, pointRadius: 0 },
+                            { label: "Predicted Price", data: Array(historicalPrices.length).fill(null).concat([predictedPrice]), borderColor: "red", borderDash: [5, 5], fill: false, pointRadius: 5 }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            x: { title: { display: true, text: "Date" } },
+                            y: { title: { display: true, text: "Price (₹)" } }
+                        },
+                        plugins: { legend: { display: true }, tooltip: { mode: "index", intersect: false } }
+                    }
+                });
+            });
+        </script>
+    </div>
+{% endif %}
+{% endblock %}

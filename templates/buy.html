@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+<div class="card text-center w-75 mx-auto mb-4">
+    <div class="card-header mb-4">
+        <h3>Buy</h3>
+    </div>
+    <div class="card-body mb-4">
+        <form action="/buy" method="post" id="buy-form">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control form-control-lg p-2 bg-light rounded-pill shadow-sm w-50 mb-4 text-center mx-auto" name="symbol" placeholder="Stock Symbol (e.g., TCS)" required="required" type="text">
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" class="form-control form-control-lg p-2 bg-light rounded-pill shadow-sm w-50 mb-4 text-center mx-auto" name="shares" placeholder="Amount" required="required" type="text">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success btn-lg rounded-pill w-50" type="submit">Buy</button>
+            </div>
+        </form>
+        <form action="/predict" method="post" id="predict-form">
+            <input type="hidden" name="symbol" id="predict-symbol">
+            <div class="form-group">
+                <button class="btn btn-primary btn-lg rounded-pill w-50 mt-3" type="submit">Predict</button>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer text-muted">
+        Enjoy commission-free trading on Finance in INR.
+    </div>
+</div>
+
+<script>
+    document.getElementById("predict-form").onsubmit = function() {
+        const symbol = document.querySelector("#buy-form input[name='symbol']").value;
+        document.getElementById("predict-symbol").value = symbol;
+    };
+</script>
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+<!-- Header -->
+<div class="header">
+    <div class="row">
+        <div class="col-lg-5">
+            <h1 class="header-title">Money in good hands.</h1>
+            <p>Invest and grow your wealth with a wide selection of Indian stocks on a reputable online trading platform.</p>
+            <a href="/register"><button class="btn btn-lg" type="button">Get Started</button></a>
+        </div>
+        <div class="col-lg-7">
+            <img src="/static/header.gif" alt="header-gif">
+        </div>
+    </div>
+</div>
+
+<!-- Feature-1 -->
+<div class="feature-1">
+    <div class="row">
+        <div class="col-lg-7">
+            <img src="/static/feature-1.gif" alt="feature-1-gif">
+        </div>
+        <div class="col-lg-5 description">
+            <h3>Build your wealth the easiest way.</h3>
+            <p>With Finance, you have true flexibility over your money. Invest in top Indian stocks effortlessly.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Feature-2 -->
+<div class="feature-2">
+    <div class="row">
+        <div class="col-lg-7">
+            <img src="/static/feature-2.gif" alt="feature-2-gif">
+        </div>
+        <div class="col-lg-5 description">
+            <h3>Live and retire your way.</h3>
+            <p>Plan your retirement with the best investment platform for Indian markets using Finance.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Feature-3 -->
+<div class="feature-3">
+    <div class="row">
+        <div class="col-lg-7">
+            <img src="/static/feature-3.gif" alt="feature-3-gif">
+        </div>
+        <div class="col-lg-5 description">
+            <h3>Join millions of investors.</h3>
+            <p>Connect with traders, discuss strategies, and share knowledge in India’s trading community.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Feature-4 (Carousel) -->
+<div class="feature-4">
+    <h1>100% stocks, 0% commission</h1>
+    <p>Investing in Indian financial markets has never been easier. Start building your wealth today with Finance.</p>
+    <a href="/register"><button class="btn btn-primary btn-lg">Start Trading</button></a>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active"><img src="/static/stock-logo/1.png" class="d-block w-100" alt="stock-img"></div>
+                    <div class="carousel-item"><img src="/static/stock-logo/2.png" class="d-block w-100" alt="stock-img"></div>
+                    <div class="carousel-item"><img src="/static/stock-logo/3.png" class="d-block w-100" alt="stock-img"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <div id="carousel2" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active"><img src="/static/stock-logo/4.png" class="d-block w-100" alt="stock-img"></div>
+                    <div class="carousel-item"><img src="/static/stock-logo/5.png" class="d-block w-100" alt="stock-img"></div>
+                    <div class="carousel-item"><img src="/static/stock-logo/6.png" class="d-block w-100" alt="stock-img"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <div id="carousel3" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active"><img src="/static/stock-logo/7.png" class="d-block w-100" alt="stock-img"></div>
+                    <div class="carousel-item"><img src="/static/stock-logo/8.png" class="d-block w-100" alt="stock-img"></div>
+                    <div class="carousel-item"><img src="/static/stock-logo/9.png" class="d-block w-100" alt="stock-img"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features -->
+<div class="features">
+    <div class="row">
+        <div class="feature-box col-lg-3 col-md-6 mb-5">
+            <i class="far fa-check-circle icon fa-5x"></i>
+            <h3>Easy to use</h3>
+            <p>Build your wealth for the future with a hassle-free platform.</p>
+        </div>
+        <div class="feature-box col-lg-3 col-md-6 mb-5">
+            <i class="fas fa-coins icon fa-5x"></i>
+            <h3>Commission-free</h3>
+            <p>No management or commission fees in INR.</p>
+        </div>
+        <div class="feature-box col-lg-3 col-md-6 mb-5">
+            <i class="fas fa-shield-alt icon fa-5x"></i>
+            <h3>Guaranteed safe</h3>
+            <p>Protecting your data and investments in India.</p>
+        </div>
+        <div class="feature-box col-lg-3 col-md-6 mb-5">
+            <i class="fas fa-exchange-alt icon fa-5x"></i>
+            <h3>Freedom</h3>
+            <p>Manage your INR funds anytime, anywhere.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
