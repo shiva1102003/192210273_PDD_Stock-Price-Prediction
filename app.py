@@ -58,10 +58,10 @@ def login():
 
     if request.method == "POST":
         if not request.form.get("username"):
-            flash("Please provide username.")
+            flash("Please give me username.")
             return redirect("/login")
         elif not request.form.get("password"):
-            flash("Please provide password.")
+            flash("Please give me password.")
             return redirect("/login")
 
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
